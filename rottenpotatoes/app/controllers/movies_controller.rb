@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
       flash[:notice] = "'#{movie.title}' has no director info"
       redirect_to '/' and return
     end
-    @movies = Movie.where(:director => movie.director)
+    @movies = movie.same_director_movies
   end
 
   def index
